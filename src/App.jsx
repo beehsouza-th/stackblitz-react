@@ -23,7 +23,7 @@ export default function App() {
           <img src= 'assets/img/undraw_login_weas.svg' />
         </div>
         <div className='form'>
-         <form onSubmit={autenticarComFirebase()}> 
+         <form onSubmit={autenticarComFirebase}> 
             <div className='form-header'>
               <div className='title'>
                 <h1>Login</h1>
