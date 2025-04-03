@@ -2,15 +2,30 @@ import { useState } from 'react';
 import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import './App.css/styles.css'
+import { useNavigate } from 'react-router-dom';
+import { SignJWT } from 'jose';
 
 export default function App() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  const navigate = useNavigate();
+
   const autenticarComFirebase = async (evento) => {
     evento.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, senha);
+
+      const secretkey = new TextEncoder().encode('minhaChaveSecreta');
+
+      const token = await new SignJWT({ user: 'admin'})
+      .setProtectedHeader({ alg: 'HS256'})
+      .setIssuedAt()
+      .setExpirationTime('1h')
+      .sign(secretkey);
+
+      localStorage.setItem('token', token);
+      navigate('/')
       alert('Logado com sucesso!');
     } catch (err) {
       alert('Erro no processo', err);
