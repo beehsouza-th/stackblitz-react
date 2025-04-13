@@ -53,7 +53,9 @@ body{
 .login-button{
     display: flex;
     align-items: center;
+
 }
+
 
 .login-button button{
     border: none;

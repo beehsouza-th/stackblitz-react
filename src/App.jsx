@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import './App.css/styles.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SignJWT } from 'jose';
 
 export default function App() {
@@ -36,27 +36,25 @@ export default function App() {
       <div className='container'>
         <div className='form-image'>
           <img src= 'assets/img/undraw_login_weas.svg' />
-        </div>
-        <div className='form'>
-         <form onSubmit={autenticarComFirebase}> 
-            <div className='form-header'>
-              <div className='title'>
+           </div>
+             <div className='form'>
+              <form onSubmit={autenticarComFirebase}> 
+               <div className='form-header'>
                 <h1>Login</h1>
-              </div>
-              <div className='input-group'>
-                <div className='input-box'>
-                <label htmlFor="email">E-mail:</label>
+                 </div>
+                 <div className='form-header'>
+                  <div className='input-group'>
+                   <div className='input-box'>
+              <label htmlFor="email">E-mail:</label>
               <input
                  id="email"
                  name="e-mail"
-                 placeholder='Ex:jorge@gmail.com'
+                 placeholder='e-mail'
                  type="email"
                  value={email}
                  onChange={(evento) => setEmail(evento.target.value)}
               />
               </div>
-
-              
                <div className="input-box">
                <label htmlFor="password">Senha:</label>
               <input
@@ -67,17 +65,19 @@ export default function App() {
                 value={senha}
                 onChange={(evento) => setSenha(evento.target.value)}
               />
-              </div>
-              
+              </div> 
               <div className='login-button'>
               <button type="submit"> Fazer Login </button>
-              </div>
-
+                </div>
+                <Link to= "/Registrar">
+                <p> Não tenho conta</p>
+                </Link>
               </div>
             </div>
           </form>
         </div>
       </div>
+
     </main>
   
   );
