@@ -69,7 +69,7 @@ export default function App() {
               <div className='login-button'>
               <button type="submit"> Fazer Login </button>
                 </div>
-                <Link to= "/Registrar">
+                <Link className='button-register' to= "/Registrar">
                 <p> Não tenho conta</p>
                 </Link>
               </div>

@@ -6,7 +6,7 @@ import { auth } from "./config/firebaseConfig";
 
 export default function Registra(){
     const [email, setEmail] = useState('');
-    const[senha, setSenha] = useState('');
+    const [senha, setSenha] = useState('');
 
     const navigation = useNavigate();
 
