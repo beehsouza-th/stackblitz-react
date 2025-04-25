@@ -18,9 +18,18 @@ header{
     margin-top: 15%;
 }
 
+
 .button-register{
     text-decoration: none;
+    align-items: center;
 
+}
+.paginasem{
+    text-decoration: none;
+}
+
+.conteudo{
+    align-items: center;
 }
 
 body{
